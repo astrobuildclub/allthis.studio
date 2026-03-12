@@ -1,0 +1,50 @@
+@use '/node_modules/utopia-core-scss/src/utopia' as utopia;
+  
+/* @link https://utopia.fyi/type/calculator?c=393,17,1.125,1440,17,1.2,8,2,&s=0.75|0.5|0.25,1.5|2|3|4|6|8,s-l|m-2xl|m-3xl|xl-4xl&g=s,xl,2xl,12 */
+
+:root {
+  @include utopia.generateTypeScale((
+    "minWidth": 393,
+    "maxWidth": 1440,
+    "minFontSize": 17,
+    "maxFontSize": 17,
+    "minTypeScale": 1.125,
+    "maxTypeScale": 1.2,
+    "positiveSteps": 8,
+    "negativeSteps": 2,
+    "prefix": "step-",
+    "relativeTo": "viewport-width"
+  ));
+}
+/* @link https://utopia.fyi/space/calculator?c=393,17,1.125,1440,17,1.2,8,2,&s=0.75|0.5|0.25,1.5|2|3|4|6|8,s-l|m-2xl|m-3xl|xl-4xl&g=s,xl,2xl,12 */
+
+:root {
+  @include utopia.generateSpaceScale((
+    "minWidth": 393,
+    "maxWidth": 1440,
+    "minSize": 17,
+    "maxSize": 17,
+    "positiveSteps": (1.5, 2, 3, 4, 6, 8),
+    "negativeSteps": (0.75, 0.5, 0.25),
+    "customSizes": ("s-l", "m-2xl", "m-3xl", "xl-4xl"),
+    "prefix": "space-",
+    "relativeTo": "viewport-width",
+  ));
+}
+
+:root {
+  --grid-max-width: 92.44rem;
+  --grid-gutter: var(--space-s-xl, clamp(1.0625rem, 0.2935rem + 3.1308vw, 3.1875rem));
+  --grid-columns: 12;
+}
+
+.u-container {
+  max-width: var(--grid-max-width);
+  padding-inline: var(--grid-gutter);
+  margin-inline: auto;
+}
+
+.u-grid {
+  display: grid;
+  gap: var(--grid-gutter);
+}
